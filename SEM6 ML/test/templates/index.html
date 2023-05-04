@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="/static/styles.css">
+	<title>Heart Attack</title>
+</head>
+<body>
+	<div class="form">
+		<form action="{{ url_for('predict')}}" method="post">
+			<div class="title">Welcome</div>
+			<div class="subtitle">Enter your details!</div>
+			<div class="input-container ic">
+				<div class="input">
+					<p >Please select your gender:</p>
+					<input type="radio" id="male" name="sex" value="1" required="required">
+					<label for="male">male</label><br>
+					<input type="radio" id="female" name="sex" value="0" required="required">
+					<label for="female">female</label><br>
+				</div>
+			</div>
+			<br>
+			<br>
+			<div class="input-container ic">
+				<div class="input">
+					<p >Please select chest pain type:</p>
+					<input type="radio" id="typical-angina" name="cp" value="0" required="required">
+					<label for="typical-angina">typical angina</label><br>
+					<input type="radio" id="atypical-angina" name="cp" value="1" required="required">
+					<label for="atypical-angina">atypical angina</label><br>
+					<input type="radio" id="non-anginal" name="cp" value="2" required="required">
+					<label for="non-anginal">non-anginal pain</label><br>
+					<input type="radio" id="asymptomatic" name="cp" value="3" required="required">
+					<label for="asymptomatic">asymptomatic</label><br>
+				</div>
+			
+			</div>
+			<br>
+			<br>
+			<br>
+			<br>
+
+			
+			<div class="input-container ic">
+				<div class="input">
+					<p class="big-text">Is your Fasting blood sugar greater than 120 mg/dl?:</p><br>
+					<input type="radio" id="yes" name="fbs" value="1" required="required">
+					<label for="yes">yes</label><br>
+					<input type="radio" id="no" name="fbs" value="0" required="required">
+					<label for="no">no</label><br>
+				</div>
+			</div>
+			<br>
+			<br>
+			<br>
+
+
+			<div class="input-container ic">
+				<div class="input">
+					<p class="big-text">Please select Resting ECG type:</p><br>
+					<input type="radio" id="normal" name="restecg" value="0" required="required">
+					<label for="normal">normal</label><br>
+					<input type="radio" id="abnormal" name="restecg" value="1" required="required">
+					<label for="abnormal">abnormal</label><br>
+					<input type="radio" id="probable" name="restecg" value="2" required="required">
+					<label for="probable">showing probable or definite left ventricular hypertrophy</label><br>
+				</div>
+			</div>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+
+
+			<div class="input-container ic">
+			<input id="firstname" class="input" type="text" name="thalachh" placeholder=" " required="required"/>
+			<div class="cut"></div>
+			<label for="firstname" class="placeholder">Maximum heart rate achieved in bpm(94-200))</label>
+			</div>
+
+			<div class="input-container ic">
+				<div class="input">
+					<p class="big-text">Exercise induced angina:</p><br>
+					<input type="radio" id="yes" name="exng" value="1" required="required">
+					<label for="yes">yes</label><br>
+					<input type="radio" id="no" name="exng" value="0" required="required">
+					<label for="no">no</label><br>
+				</div>
+			</div>
+			<br>
+			<br>
+			<br>
+
+
+			<div class="input-container ic">
+			<input id="firstname" class="input" type="text" name="oldpeak" placeholder=" " required="required"/>
+			<div class="cut"></div>
+			<label for="firstname" class="placeholder">Old peak = ST depression induced by exercise relative to rest(0-6.2)</label>
+			</div>
+
+
+			<div class="input-container ic">
+				<div class="input">
+					<p class="big-text">Slope - the slope of the peak exercise:</p><br>
+					<input type="radio" id="up" name="slp" value="0" required="required">
+					<label for="up">up-sloping</label><br>
+					<input type="radio" id="flat" name="slp" value="1" required="required">
+					<label for="flat">flat</label><br>
+					<input type="radio" id="down" name="slp" value="2" required="required">
+					<label for="down">down-sloping</label><br>
+				</div>
+			</div>
+			<br>
+			<br>
+			<br>
+			<br>
+			
+
+			<div class="input-container ic">
+			<input id="firstname" class="input" type="text" name="caa" placeholder=" " required="required"/>
+			<div class="cut"></div>
+			<label for="firstname" class="placeholder">Number of major vessels Colored by Fluoroscopy(0-3)</label>
+			</div>
+
+			<div class="input-container ic">
+				<div class="input">
+					<p class="big-text">Thallium stress test result:</p><br>
+					<input type="radio" id="up" name="thall" value="0" required="required">
+					<label for="up">normal</label><br>
+					<input type="radio" id="flat" name="thall" value="1" required="required">
+					<label for="flat">fixed defect</label><br>
+					<input type="radio" id="down" name="thall" value="2" required="required">
+					<label for="down">reversable defect</label><br>
+				</div>
+			</div>
+			<br>
+			<br>
+			<br>
+			<br>
+			<button type="submit" class="submit">Predict</button>
+		</form>
+		<br>
+		<br>
+		<br>
+		<div class="input pred">
+			<h4 style="color:rgb(165, 115, 209);"> {{prediction_text}} </h4>
+		</div>
+	</div>
+</body>
+</html>
